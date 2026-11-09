@@ -1,0 +1,46 @@
+[build-system]
+requires = ["setuptools>=77", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "flare-arnn"
+version = "0.2.0"
+description = "Family-specific likelihood-based recurrent estimation and conformal intervals for longitudinal data"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [
+    { name = "Kaili Shi" },
+    { name = "Dipankar Bandyopadhyay" },
+    { name = "Debarghya Mukherjee" },
+]
+keywords = ["longitudinal", "rnn", "prediction-intervals", "conformal", "mixture", "autoregressive"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering",
+]
+dependencies = [
+    "numpy>=1.24",
+    "pandas>=2.0",
+    "scipy>=1.10",
+    "scikit-learn>=1.3",
+    "torch>=2.0",
+]
+
+[project.optional-dependencies]
+plot = ["matplotlib>=3.7"]
+parquet = ["pyarrow>=14"]
+dev = ["pytest>=7", "build>=1.2", "twine>=5"]
+all = ["flare-arnn[plot,parquet]"]
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

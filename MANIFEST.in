@@ -1,0 +1,10 @@
+include README.md
+include LICENSE
+recursive-include examples *.py
+recursive-include tests *.py
+recursive-include src/flare *.py
+global-exclude *.py[cod]
+global-exclude .DS_Store
+prune .pytest_cache
+prune build
+prune dist
